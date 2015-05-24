@@ -1,26 +1,26 @@
 package com.example.owner.recognitioningmanaca;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.view.Window;
+
+import com.ImageRecognition.callback.GPImageRecognitionEngineCallback;
+import com.ImageRecognition.data.GPImageRecognitionEngineResult;
+import com.ImageRecognition.exception.CameraEndFailedException;
+import com.ImageRecognition.exception.CameraStartFailedException;
+import com.ImageRecognition.manager.GPImageRecognitionEngine;
+import com.ImageRecognition.manager.recognizer.GPFineRecognizer;
 
 
 public abstract class MainActivity extends Activity implements GPImageRecognitionEngineCallback, View.OnClickListener {
 
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
+       @Override
+       protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
@@ -28,9 +28,9 @@ public abstract class MainActivity extends Activity implements GPImageRecognitio
         SurfaceView surface = (SurfaceView)findViewById(R.id.surface);
 
         Object _engine = GPImageRecognitionEngine.getInstance();
-        _engine.setPreviewView(surface);
+        _engine.setPreviewView(,surface);
         _engine.setProcessMethod(this);
-        _engine.setPreviewOrientation(PreviewOrientation.PORTRAIT);
+        _engine.setPreviewOrientation(GPImageRecognitionEngine.PreviewOrientation.PORTRAIT);
 
         GPFineRecognizer _recognizer = new GPFineRecognizer();
         _engine.setGPImageRecognizer(_recognizer);
@@ -41,6 +41,7 @@ public abstract class MainActivity extends Activity implements GPImageRecognitio
     @Override
     public void onResume(){
         super.onResume();
+
         if(_engine!=null){
             try {
                 _engine.Start();
