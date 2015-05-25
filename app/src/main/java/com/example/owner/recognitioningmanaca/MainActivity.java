@@ -28,7 +28,7 @@ public abstract class MainActivity extends Activity implements GPImageRecognitio
         SurfaceView surface = (SurfaceView)findViewById(R.id.surface);
 
         Object _engine = GPImageRecognitionEngine.getInstance();
-        _engine.setPreviewView(,surface);
+        _engine.setPreviewView(surface);
         _engine.setProcessMethod(this);
         _engine.setPreviewOrientation(GPImageRecognitionEngine.PreviewOrientation.PORTRAIT);
 
