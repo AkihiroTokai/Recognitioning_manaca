@@ -86,7 +86,6 @@
     <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="GPImageRecognitionEngineLibrary" level="project" />
-    <orderEntry type="library" exported="" name="1_GPImageRecognitionEngineLibrary" level="project" />
   </component>
 </module>
 

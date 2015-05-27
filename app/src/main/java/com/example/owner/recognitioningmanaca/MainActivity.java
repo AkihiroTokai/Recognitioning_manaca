@@ -18,14 +18,14 @@ import com.ImageRecognition.manager.recognizer.GPFineRecognizer;
 
 public abstract class MainActivity extends Activity implements GPImageRecognitionEngineCallback, View.OnClickListener {
 
-       @Override
-       protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
-        SurfaceView surface = (SurfaceView)findViewById(R.id.surface);
+        SurfaceView surface = (SurfaceView) findViewById(R.id.surface);
 
         Object _engine = GPImageRecognitionEngine.getInstance();
         _engine.setPreviewView(surface);
@@ -39,31 +39,31 @@ public abstract class MainActivity extends Activity implements GPImageRecognitio
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
-        if(_engine!=null){
+        if (_engine != null) {
             try {
                 _engine.Start();
+            } catch (CameraStartFailedException e) {
             }
-            catch (CameraStartFailedException e) {}
         }
     }
 
     @Override
-    public void onPause(){
+    public void onPause() {
         super.onPause();
-        if(_engine!=null){
+        if (_engine != null) {
             try {
                 _engine.Stop();
+            } catch (CameraEndFailedException e) {
             }
-            catch (CameraEndFailedException e) {}
         }
     }
 
     @Override
     public void ImageRecognitionResult(GPImageRecognitionEngineResult result) {
-        if(result.isRecognized){
+        if (result.isRecognized) {
             try {
                 _engine.Stop();
             } catch (CameraEndFailedException e) {
@@ -77,7 +77,7 @@ public abstract class MainActivity extends Activity implements GPImageRecognitio
     public void showDialog(GPImageRecognitionEngineResult result) {
 
     }
-}
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,5 +101,5 @@ public abstract class MainActivity extends Activity implements GPImageRecognitio
         return super.onOptionsItemSelected(item);
     }
 
-
+}
 
