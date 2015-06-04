@@ -25,5 +25,6 @@ dependencies {
     //compile files('src/main/java/com/example/owner/recognitioningmanaca/GPImageRecognitionEngineLibrary.jar')
     //compile files('libs/GPImageRecognitionEngineLibrary.jar')
     compile files('libs/GPImageRecognitionEngineLibrary.jar')
+    compile project(':openCVLibrary2411')
 }
 

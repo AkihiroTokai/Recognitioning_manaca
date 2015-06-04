@@ -16,6 +16,7 @@ import com.ImageRecognition.manager.GPImageRecognitionEngine;
 import com.ImageRecognition.manager.recognizer.GPFineRecognizer;
 
 
+
 public  class MainActivity extends Activity implements GPImageRecognitionEngineCallback, OnClickListener {
 
     @Override
@@ -27,7 +28,7 @@ public  class MainActivity extends Activity implements GPImageRecognitionEngineC
 
         SurfaceView surface = (SurfaceView) findViewById(R.id.surface);
 
-       Object _engine = GPImageRecognitionEngine.getInstance();
+        Object _engine = GPImageRecognitionEngine.getInstance();
   //Can not resolve method↓
         _engine.setPreviewView(surface);
   //Can not resolve method↓
