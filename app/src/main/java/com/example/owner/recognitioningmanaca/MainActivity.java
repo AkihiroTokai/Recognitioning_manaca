@@ -28,7 +28,7 @@ public  class MainActivity extends Activity implements GPImageRecognitionEngineC
 
         SurfaceView surface = (SurfaceView) findViewById(R.id.surface);
 
-        Object _engine = GPImageRecognitionEngine.getInstance();
+        _engine = GPImageRecognitionEngine.getInstance();
   //Can not resolve method↓
         _engine.setPreviewView(surface);
   //Can not resolve method↓
