@@ -29,18 +29,13 @@ public  class MainActivity extends Activity implements GPImageRecognitionEngineC
         SurfaceView surface = (SurfaceView) findViewById(R.id.surface);
 
         _engine = GPImageRecognitionEngine.getInstance();
-  //Can not resolve method↓
         _engine.setPreviewView(surface);
-  //Can not resolve method↓
         _engine.setProcessMethod(this);
-  //Can not resolve method↓
         _engine.setPreviewOrientation(GPImageRecognitionEngine.PreviewOrientation.PORTRAIT);
 
         GPFineRecognizer _recognizer = new GPFineRecognizer();
-  //Can not resolve method↓
         _engine.setGPImageRecognizer(_recognizer);
 
-                         //Can not resolve symbol↓　　　↓
         _recognizer.loadDatasetBinary(this, binBuffer, yamlBuffer);
     }
 
@@ -69,7 +64,6 @@ public  class MainActivity extends Activity implements GPImageRecognitionEngineC
 
     @Override
     public void ImageRecognitionResult(GPImageRecognitionEngineResult result) {
-//Can not resolve symbol↓
         if (result.isRecognized) {
             try {
              _engine.Stop();
