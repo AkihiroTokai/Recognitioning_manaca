@@ -31,7 +31,7 @@ public  class MainActivity extends Activity implements GPImageRecognitionEngineC
         _engine = GPImageRecognitionEngine.getInstance();
         _engine.setPreviewView(surface);
         _engine.setProcessMethod(this);
-        _engine.setPreviewOrientation(GPImageRecognitionEngine.PreviewOrientation.PORTRAIT);
+        _engine.set        PreviewOrientation(GPImageRecognitionEngine.PreviewOrientation.PORTRAIT);
 
         GPFineRecognizer _recognizer = new GPFineRecognizer();
         _engine.setGPImageRecognizer(_recognizer);
