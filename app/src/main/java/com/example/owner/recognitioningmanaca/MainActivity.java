@@ -5,19 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceView;
-import android.view.View;
 import android.view.Window;
 
-import com.ImageRecognition.callback.GPImageRecognitionEngineCallback;
-import com.ImageRecognition.data.GPImageRecognitionEngineResult;
-import com.ImageRecognition.exception.CameraEndFailedException;
-import com.ImageRecognition.exception.CameraStartFailedException;
-import com.ImageRecognition.manager.GPImageRecognitionEngine;
-import com.ImageRecognition.manager.recognizer.GPFineRecognizer;
 
-
-
-public  class MainActivity extends Activity implements GPImageRecognitionEngineCallback, OnClickListener {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,54 +19,12 @@ public  class MainActivity extends Activity implements GPImageRecognitionEngineC
 
         SurfaceView surface = (SurfaceView) findViewById(R.id.surface);
 
-        _engine = GPImageRecognitionEngine.getInstance();
-        _engine.setPreviewView(surface);
-        _engine.setProcessMethod(this);
-        _engine.setPreviewOrientation(GPImageRecognitionEngine.PreviewOrientation.PORTRAIT);
 
-        GPFineRecognizer _recognizer = new GPFineRecognizer();
-        _engine.setGPImageRecognizer(_recognizer);
-
-        _recognizer.loadDatasetBinary(this, binBuffer, yamlBuffer);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        if (_engine != null) {
-            try {
-                _engine.Start();
-            } catch (CameraStartFailedException e) {
-            }
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (_engine != null) {
-            try {
-                _engine.Stop();
-            } catch (CameraEndFailedException e) {
-            }
-        }
-    }
-
-    @Override
-    public void ImageRecognitionResult(GPImageRecognitionEngineResult result) {
-        if (result.isRecognized) {
-            try {
-             _engine.Stop();
-            } catch (CameraEndFailedException e) {
-                e.printStackTrace();
-            }
-
-            showDialog(result);
-        }
-    }
-
-    public void showDialog(GPImageRecognitionEngineResult result) {
 
     }
 
