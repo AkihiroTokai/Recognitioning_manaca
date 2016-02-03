@@ -17,8 +17,6 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
-        SurfaceView surface = (SurfaceView) findViewById(R.id.surface);
-
 
     }
 
